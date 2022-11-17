@@ -1,0 +1,86 @@
+package com.example.and04_framlayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.Image;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+
+public class MainActivity extends AppCompatActivity {
+    Button btn;
+    ImageView imgv1, imgv2, imgv3; // <= 선언 이 이름으로 쓰겠다. null
+
+    // 데이터를 한건보다 많이 넣을수 있는 자료구조=> 배열, Collection
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        btn = findViewById(R.id.btn);
+//        imgv1 = findViewById(R.id.imgv1);
+//        imgv2 = findViewById(R.id.imgv2);
+//        imgv3 = findViewById(R.id.imgv3);
+
+
+        // 버튼을 클릭 했을때 로그가 찍히게 프로그램 해보기.
+       btn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               // 클릭 될때마다 실행되는 부분
+               Log.d("박찬재", "클릭: ");
+//               imgv1.setVisibility(View.GONE); //xml디자인에서 android:visibility="gone";
+//               imgv2.setVisibility(View.VISIBLE);
+               if (imgv1.getVisibility() == View.VISIBLE) {
+                   imgv1.setVisibility(View.GONE);
+                   imgv2.setVisibility(View.VISIBLE);
+               }else if(imgv2.getVisibility() == View.VISIBLE) {
+                   imgv2.setVisibility(View.GONE);
+                   imgv3.setVisibility(View.VISIBLE);
+               }else if(imgv3.getVisibility() == View.VISIBLE) {
+                   imgv3.setVisibility(View.GONE);
+                   imgv1.setVisibility(View.VISIBLE);
+               }
+
+
+               //이미지 바꾸기 버튼을 클릭할때마다 이미지가 바뀌게 처리를 한다.
+               //imgv1(보임) => 버튼클릭 => imgv2(보임) => 버튼클릭 => imgv3(보임) => 버튼클릭 => imgv1(보)
+
+
+
+           }
+       });    // 파라미터가 interface인 메소드 setter
+
+//        2.
+//        PcjOnclickListener onclick = new PcjOnclickListener() {
+//            // 멤버 : 중괄호 사이에 있는것
+//            // 인스턴스, 스태틱
+//            @Override
+//            public void onClick(String v) {
+////                4.
+//                Log.d("박찬재", "온클릭 PCJ I");
+//                // onClick이라는 메소드는 정의가 되었지만 아직 호출해서 사용 x
+//                // 호출
+//            }
+//        };  // String v = "값";
+        // String v = null;
+//        3.
+//        onclick.onClick("값");
+//
+//   onClick();
+//    }
+//    1.
+//    interface PcjOnclickListener {
+//        public void onClick(String v); //View <=> String
+//
+//    }
+    }
+
+}
